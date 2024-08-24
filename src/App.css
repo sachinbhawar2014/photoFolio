@@ -1,38 +1,422 @@
 .App {
-  text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+}
+/* styles for navbar */
+.navbar {
+    height: 70px;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar img {
+    height: 35px;
+    width: 35px;
+    margin: auto 30px;
+    border-radius: 10px;
+}
+.navbar span {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+/* styles for albumform component */
+.albumform {
+    /* background-color: azure;
+    height: 200px;
+    min-width: 250;
+    padding: 30px; */
+    background-color: #e2d8d8;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 50px auto 30px;
+    padding: 20px;
+    width: 50vw;
+}
+.hidden {
+    display: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.albumform form {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+.albumform span {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.albumform input {
+    border: 3px solid transparent;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 225;
+    outline: none;
+    padding: 10px 10px 10px 15px;
+    transition: 0.3s;
+    width: 60%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn {
+    background-color: #07f;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8 rem;
+    font-weight: 600;
+    outline: none;
+    padding-block: 7px;
+    width: 120px;
+}
+.btn:hover {
+    scale: 0.98;
+    transition: scale 0.2s ease-in-out;
+}
+.btn:first-of-type {
+    background-color: #ff1300;
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 900px) {
+    .albumlist {
+        width: 900px;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styles for screens larger than 900px */
+@media (min-width: 901px) {
+    .albumlist {
+        width: 900px;
+    }
+}
+
+/* Styles for screens between 720px and 900px */
+@media (min-width: 720px) and (max-width: 900px) {
+    .albumlist {
+        width: 80vw;
+    }
+}
+
+/* Styles for screens smaller than 720px */
+@media (max-width: 719px) {
+    .albumlist {
+        width: 95vw;
+    }
+}
+
+.albumlist .albumlist-heading {
+    display: flex;
+    /* background-color: #e2d8d8; */
+    padding: 10px 15px;
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.albumlist-heading span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.btn2 {
+    background-color: #07f;
+    padding: 5px 10px;
+    border: none;
+    /* border: 3px solid red; */
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn2:hover {
+    color: gold;
+    scale: 0.97;
+    transition: color scale 0.2s ease-in-out;
+}
+
+.btn2:active {
+    background-color: red;
+    scale: 0.9;
+    transition: color scale 0.2s ease-in-out;
+}
+.albumContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.album-thumbnail {
+    /* background-color: brown; */
+    border: 3px solid brown;
+    border-radius: 10px;
+    height: 165px;
+    width: 130px;
+    display: flex;
+    flex: 0 0 130px;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-block: 30px;
+    box-sizing: border-box;
+    padding: 30px auto;
+    gap: 10px;
+    box-shadow: 5px 5px 8px rgba(99, 99, 99, 0.8);
+}
+.album-thumbnail:hover {
+    color: #ff1300;
+    box-shadow: 0px 0px 5px red;
+    font-weight: bold;
+    scale: 0.98;
+    transition: box-shadow font-weight color scale 0.5s ease-in-out;
+}
+.album-thumbnail img {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+}
+
+/* styles for imageForma and ImageList */
+.imageform {
+    /* background-color: azure;
+    height: 200px;
+    min-width: 250;
+    padding: 30px; */
+    background-color: #e2d8d8;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 50px auto 30px;
+    padding: 20px;
+    width: 50vw;
+}
+
+.imageform form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+.imageform span {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.imageform input {
+    border: 3px solid transparent;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 225;
+    outline: none;
+    padding: 10px 10px 10px 15px;
+    transition: 0.3s;
+    width: 90%;
+}
+.imageform input:active {
+    border-color: #07f;
+}
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.backBtnImageContainer {
+    height: 80%;
+}
+.backBtnImageContainer .backBtn {
+    height: 100%;
+    aspect-ratio: 1;
+    margin-right: 20px;
+}
+
+.searchBox {
+    border: 3px solid transparent;
+    background-color: aquamarine;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 225;
+    outline: none;
+    padding: 10px 10px 10px 15px;
+    transition: 0.3s;
+    width: 60%;
+    margin-right: 20px;
+}
+
+.image-thumbnail {
+    /* background-color: brown; */
+    position: relative;
+    /* border: 3px solid brown; */
+    border-radius: 10px;
+    height: 165px;
+    width: 200px;
+    display: flex;
+    flex: 0 0 130px;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-block: 30px;
+    box-sizing: border-box;
+    padding: 30px auto;
+    padding: 5px 5px;
+    /* gap: 5px; */
+    box-shadow: 0px 0px 3px 3px rgba(99, 99, 99, 0.8);
+}
+.image-thumbnail:hover {
+    color: #ff1300;
+    box-shadow: 0px 0px 5px red;
+    font-weight: bold;
+    scale: 0.98;
+    background-color: rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease-in-out;
+}
+.image-thumbnail > img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin: 5px;
+    border-radius: 10px;
+}
+.editDeleteBtnContainer {
+    position: absolute;
+    height: 40px;
+    width: 90px;
+    display: flex;
+    top: 0;
+    right: 0;
+}
+.editDeleteBtnContainer.hidden {
+    display: none;
+}
+.editDeleteBtnContainer img {
+    width: 40px;
+    height: 40px;
+    /* width: 100px; */
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    flex-direction: column;
+}
+
+.no-data {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 60px;
+    color: #d627ca;
+}
+
+.carouselSection {
+    position: absolute;
+    width: 50vw;
+    height: 70vh;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+.carousel {
+    width: 50%;
+    height: auto;
+    /* position: relative; */
+}
+
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+}
+
+.slide > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slide[data-active] {
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+}
+
+.carousel-button {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    font-size: 4rem;
+
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 0 0.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-button:focus {
+    outline: 1px solid black;
+}
+
+.carousel-button.prev {
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-button.next {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-button.close {
+    top: 0;
+    right: 0rem;
 }
